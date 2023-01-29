@@ -9,18 +9,241 @@
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/black.css">
-
+        <link rel="stylesheet" href="dist/user.css">
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+                <section data-0 >
+					<h1>CSS GRID LAYOUT</h1>
+                    <iframe src="https://giphy.com/embed/3CZ3cqAHhaa21p45qX" width="500" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+		        </section>
+
+                <section data-1-canIuse>
+					<img src="img/slide1.png">
+		        </section>
+
+				<section data-3-display-grid>
+					<h2 data-id="code-title">Grid wrapper</h2>
+                    <div class="two_cols">
+                        <div>
+                            <h4 >HTML</h4>
+                            <pre data-id="code-animation">
+                                <code class="hljs javascript" data-trim data-line-numbers>
+                                    <div class="wrapper">
+                                        <div>1</div>
+                                        <div>2</div>
+                                        <div>3</div>
+                                    </div>
+                                </code>
+                            </pre>
+                        </div>
+                        <div>
+                            <h4 >CSS</h4>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .wrapper {
+                                        display: grid;
+                                    }
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <img src="img/grid.jpg">
+                </section>
+                
+                <section data-4-gap-grid>
+					<h2 data-id="code-title">Grid gap</h2>
+                    <div class="two_cols">
+                        <div>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .wrapper{
+                                        grid-gap: 1em; }
+                                    OR
+                                    .wrapper{
+                                        grid-gap: 1em 1em; }
+                                    </code>
+                            </pre>
+                        </div>
+                        <div>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .wrapper{
+                                        grid-row-gap:
+                                            1em;
+                                        grid-column-gap:
+                                            1em; }
+                                </code>
+                            </pre>
+                        </div>
+                    </div> 
+                    <img src="img/gap.jpg">
+		        </section>
+                
+                <section data-5-cols>
+                    <div class="two_cols">
+                        <div>
+                            <h4 >HTML</h4>
+                            <pre data-id="code-animation">
+                                <code class="hljs javascript" data-trim data-line-numbers>
+                                    <div class="wrapper">
+                                        <div>One</div>  
+                                        <div>Two</div>  
+                                        <div>Three</div> 
+                                        <div>Four</div> 
+                                        <div>Five</div>
+                                    </div>
+                                </code>
+                            </pre>
+                        </div>
+                        <div>
+                            <h4 >CSS</h4>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .wrapper {
+                                        display: grid;
+                                        grid-template-columns: 
+                                            200px 200px 200px;
+                                    }
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <h4 >Result</h4>
+                    <img src="img/200fr.png">
+                </section>
+                <section data-6-cols-fr>
+                    <div>
+                        <div>
+                            <h4 >CSS</h4>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .wrapper{
+                                        grid-template-rows:  repeat(3,100px); 
+                                        grid-template-columns: repeat(2,1fr); 
+                                       }
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <h4 >Result</h4>
+                    <img src="img/fr.jpg">
+                </section>  
+
+                <section data-7-position-item>
+                    <div class="two_cols">
+                        <div>
+                            <h4 >CSS</h4>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                        .itemone{
+                                            grid-row-start: 2;
+                                            grid-row-end: 3;
+                                            grid-column-start: 2;
+                                            grid-column-end: 3;  }
+                                </code>
+                            </pre>
+                        </div>
+                        <div>
+                            <h4 >CSS shortcut</h4>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                        .itemone{
+                                            grid-area: 2 / 2 / 3 / 3;
+                                        }
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <h4 >Result</h4>
+                    <img src="img/pos.jpg">
+                </section>
+
+                <section data-8-naming>
+                    <div class="two_cols">
+                        <div>
+                            <h4 >CSS items</h4>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .itemone{
+                                        grid-area: header;
+                                     }
+                                     .itemtwo{
+                                        grid-area: main; 
+                                     } 
+                                </code>
+                            </pre>
+                        </div>
+                        <div>
+                            <h4 >CSS wrapper</h4>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .wrapper{
+                                      grid-template-areas:
+                                      "header header header header"   
+                                      "main main . sidebar"
+                                      "footer footer footer footer";
+                                    }
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <h4 >Result</h4>
+                    <img src="img/templ.jpg">
+                </section>
+
+                <section data-9-alining>
+                    <div >
+                        <div>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .wrapper { 
+                                        justify-items: start | end | center | stretch; }
+                                </code>
+                            </pre>
+                            <img src="img/just.jpg"> 
+                        </div>
+
+                        <div>
+                             <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .wrapper { 
+                                        align-items: start | end | center | stretch; }
+                                </code>
+                            </pre>
+                            <img src="img/align.jpg">
+                        </div>
+                    </div>
+                 </section>
+
+                 <section data-10-alining-2>
+                    <div >
+                        <div>
+                            <pre data-id="code-animation">
+                                <code class="hljs css" data-trim data-line-numbers>
+                                    .wrapper { 
+                                        justify-content: 
+                                            start | end | center | stretch |
+                                            space-around | space-between | space-evenly;
+                                        align-content: 
+                                            start | end | center | stretch |
+                                            space-around | space-between | space-evenly;}
+                                </code>
+                            </pre>
+                            <img src="img/align2.jpg"> 
+                            <div>justify-content: center</div>
+                        </div>
+                    </div>
+                 </section>
+
+                 <section>
+                    <iframe src="https://giphy.com/embed/oSYflamt3IEjm" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                 </section>             
 			</div>
 		</div>
-
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
