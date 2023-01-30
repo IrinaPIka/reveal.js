@@ -1,0 +1,7 @@
+h1 {color: #673ab7}
+h4 {text-align: left}
+.two_cols{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
